@@ -3,9 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34004.107
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00-Opakovani", "00-Opakovani", "{2D0CA24D-A028-4917-97E7-42F15917A1DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00-Rev-Demo-Ternarni-operator", "00-Rev-Demo-Ternarni-operator\00-Rev-Demo-Ternarni-operator.csproj", "{A6F3D909-73A5-4C41-B5D9-3DCBCFD283F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00-Rev-Demo-Formatovaci-retezec", "00-Rev-Demo-Formatovaci-retezec\00-Rev-Demo-Formatovaci-retezec.csproj", "{4B043CF5-0CE7-433C-B351-8DDED05E2316}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6F3D909-73A5-4C41-B5D9-3DCBCFD283F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6F3D909-73A5-4C41-B5D9-3DCBCFD283F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6F3D909-73A5-4C41-B5D9-3DCBCFD283F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6F3D909-73A5-4C41-B5D9-3DCBCFD283F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B043CF5-0CE7-433C-B351-8DDED05E2316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B043CF5-0CE7-433C-B351-8DDED05E2316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B043CF5-0CE7-433C-B351-8DDED05E2316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B043CF5-0CE7-433C-B351-8DDED05E2316}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A6F3D909-73A5-4C41-B5D9-3DCBCFD283F6} = {2D0CA24D-A028-4917-97E7-42F15917A1DE}
+		{4B043CF5-0CE7-433C-B351-8DDED05E2316} = {2D0CA24D-A028-4917-97E7-42F15917A1DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {198B9E74-2A99-4961-8A43-E6A85E85C11A}
