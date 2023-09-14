@@ -7,6 +7,8 @@
             double i = 3.14159;
             double e = 2.71828;
 
+            long velkeCislo = 15_678_945_625_584_123;
+
             //jako interpolace řetězců
             Console.WriteLine($"Zaokrouhleno: i = {i:0.000} , e = {e:0.000}");
             Console.WriteLine($"Doplněno zleva nulami a mezerou: i = {i:0 000.0}, e = {e:0 000.0}");
