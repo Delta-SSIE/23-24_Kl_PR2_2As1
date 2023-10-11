@@ -20,6 +20,11 @@
             else
                 Console.WriteLine($"{baryk.Jmeno} nemá pána.");
 
+            Console.WriteLine(baryk.Nohy);
+            baryk.Nohy -= 2;
+            Console.WriteLine(baryk.Nohy);
+            baryk.Nohy += 2;
+
         }
     }
 }
