@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01_OOP_050_Lanovka
+namespace _01_OOP_051_Lanovka_index
 {
     internal class Lanovka
     {
@@ -12,6 +12,17 @@ namespace _01_OOP_050_Lanovka
         public int Nosnost { get; private set; }
 
         private Clovek[] _sedacky;
+        private int _indexPrvniSedacky;
+        private int _indexPosledniSedacky
+        {
+            get
+            {
+                int index = _indexPrvniSedacky - 1;
+                if (index < 0)
+                    index = Delka - 1;
+                return index;
+            }
+        }
 
         public Lanovka(int delka, int nosnost)
         {
@@ -19,6 +30,7 @@ namespace _01_OOP_050_Lanovka
             _sedacky = new Clovek[delka];
 
             Nosnost = nosnost;
+            _indexPrvniSedacky = 0;
         }
         public int Zatizeni
         {
@@ -40,22 +52,21 @@ namespace _01_OOP_050_Lanovka
         {
             get
             {
-                if (_sedacky[0] == null)
+                if (_sedacky[_indexPrvniSedacky] == null)
                     return true;
                 else
                     return false;
             }
         }
-        //public bool JeVolnoDole => _sedacky[0] == null;
 
         public bool JeVolnoNahore
         {
             get
-            {                
-                if (_sedacky[Delka - 1] == null)
+            {
+                if (_sedacky[_indexPosledniSedacky] == null)
                     return true;
                 else
-                    return false;                
+                    return false;
             }
         }
 
@@ -67,13 +78,13 @@ namespace _01_OOP_050_Lanovka
             if (Zatizeni + clovek.Hmotnost > Nosnost)
                 return false;
 
-            _sedacky[0] = clovek;
+            _sedacky[_indexPrvniSedacky] = clovek;
             return true;
         }
         public Clovek Vystup()
         {
-            Clovek vystoupil = _sedacky[Delka - 1]; //ten, co byl na konci
-            _sedacky[Delka - 1] = null; //už tam není
+            Clovek vystoupil = _sedacky[_indexPosledniSedacky]; //ten, co byl na konci
+            _sedacky[_indexPosledniSedacky] = null; //už tam není
             return vystoupil;
         }
         public void Jed()
@@ -81,12 +92,8 @@ namespace _01_OOP_050_Lanovka
             if (!JeVolnoNahore)
                 throw new Exception("Nelze jet, nahoře někdo sedí");
 
-            //projít pole od konce
-            for (int i = Delka - 1; i > 0; i--)
-            {
-                _sedacky[i] = _sedacky[i - 1]; //posunu vše o jeden index výš
-            }
-            _sedacky[0] = null; //dolů dám prázdno
+            _indexPrvniSedacky = _indexPosledniSedacky;
+            _sedacky[_indexPrvniSedacky] = null; //dolů dám prázdno
         }
 
         public void Vypis()
@@ -99,5 +106,6 @@ namespace _01_OOP_050_Lanovka
             }
             Console.WriteLine("----");
         }
+
     }
 }

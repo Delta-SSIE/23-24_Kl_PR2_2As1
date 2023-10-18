@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01_OOP_050_Lanovka
+namespace _01_OOP_052_Lanovka_Linked
 {
     internal class Clovek
     {
