@@ -14,8 +14,18 @@
             {
                 Console.WriteLine(utvar.ToString());
             }
+            Console.WriteLine();
 
-            
+            PlechovkaBarvy plechovka = new(80, 2);
+            foreach (IUtvar utvar in utvary)
+            {
+                Console.WriteLine(plechovka);
+                Console.WriteLine(plechovka.Obarvi(utvar));
+            }
+            Console.WriteLine(plechovka);
+
+
+
         }
     }
 }
