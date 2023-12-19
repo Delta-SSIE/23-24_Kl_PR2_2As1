@@ -13,8 +13,14 @@ namespace _02_OOP2_05_Inventory
 
         public int HP { get; private set; }
         public int MaxHP { get; private set; }
+        public bool IsAlive => HP > 0;
+
+        public Weapon RightHand { get; private set; } = null;
+        public Shield LeftHand { get; private set; } = null;
+        public Armor Wearing { get; private set; } = null;
         
         private List<Item> _inventory;
+        private Dice _dice;
 
         public Character(string name, int maxWeight, int maxHP)
         {
@@ -22,6 +28,7 @@ namespace _02_OOP2_05_Inventory
             MaxWeight = maxWeight;
             HP = MaxHP = maxHP;
             _inventory = new List<Item>();
+            _dice = new Dice();
         }
 
         public int CarryWeight
@@ -33,6 +40,19 @@ namespace _02_OOP2_05_Inventory
                 {
                     weight += i.Weight;
                 }
+                if (LeftHand != null)
+                {
+                    weight += LeftHand.Weight;
+                }
+                if (RightHand != null)
+                {
+                    weight += RightHand.Weight;
+                }
+                if (Wearing != null)
+                {
+                    weight += Wearing.Weight;
+                }
+
                 return weight;
             }
         }
@@ -71,5 +91,71 @@ namespace _02_OOP2_05_Inventory
             return result;
         }
 
+        public bool Equip(Item item)
+        {
+            if (!_inventory.Contains(item))
+                return false;
+
+            if (item is Weapon weapon)
+            {
+                if (RightHand != null)
+                {
+                    _inventory.Add(RightHand);
+                }
+                RightHand = weapon;
+                _inventory.Remove(item);
+                return true;
+            }
+            if (item is Shield shield)
+            {
+                if (LeftHand != null)
+                {
+                    _inventory.Add(LeftHand);
+                }
+                LeftHand = shield;
+                _inventory.Remove(item);
+                return true;
+            }
+            if (item is Armor armor)
+            {
+                if (Wearing != null)
+                {
+                    _inventory.Add(Wearing);
+                }
+                Wearing = armor;
+                _inventory.Remove(item);
+                return true;
+            }
+            return false;
+        }
+
+        public int GetAttack()
+        {
+            int attack = RightHand != null ? RightHand.Attack : 0;
+            return  attack + _dice.Throw();
+        }
+
+        private int GetDefense()
+        {
+            int defense = LeftHand != null ? LeftHand.Defense : 0;
+            defense += Wearing != null ? Wearing.Defense : 0;
+            return defense + _dice.Throw();
+        }
+
+        public int ResolveAttack(int attack)
+        {
+            int defense = GetDefense();
+            
+            int wound = 0;
+            
+            if (attack > defense)
+                wound = attack - defense;
+
+            if (wound > HP)
+                wound = HP;
+
+            HP -= wound;
+            return wound;
+        } 
     }
 }
