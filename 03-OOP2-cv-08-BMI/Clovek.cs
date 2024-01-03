@@ -47,12 +47,14 @@ namespace replit_03_OOP2_080_IComparable_BMI
             double mujRozdil = Math.Abs(this.BMI - IdealniBMI);
             double druhyRozdil = Math.Abs(druhy.BMI - IdealniBMI);
 
-            if (mujRozdil < druhyRozdil)
-                return -1;
-            else if (mujRozdil == druhyRozdil)
-                return 0;
-            else
-                return 1;
+            //if (mujRozdil < druhyRozdil)
+            //    return -1;
+            //else if (mujRozdil == druhyRozdil)
+            //    return 0;
+            //else
+            //    return 1;
+
+            return mujRozdil.CompareTo(druhyRozdil);
         }
     }
 }

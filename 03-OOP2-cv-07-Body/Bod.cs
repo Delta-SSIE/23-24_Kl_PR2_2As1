@@ -39,7 +39,9 @@ namespace _03_OOP2_cv_070_Body
             //    return 0;
             //else return -1;
 
-            return Math.Sign( this.VzdalenostOdStredu() - druhyBod.VzdalenostOdStredu() );
+            //return Math.Sign(this.VzdalenostOdStredu() - druhyBod.VzdalenostOdStredu());
+
+            return this.VzdalenostOdStredu().CompareTo(druhyBod.VzdalenostOdStredu());
 
         }
     }
