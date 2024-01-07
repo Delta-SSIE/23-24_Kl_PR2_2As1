@@ -1,4 +1,4 @@
-ï»¿using System;
+?using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +24,7 @@ namespace replit_03_OOP2_080_IComparable_BMI
 
         public Clovek(string jmeno, double hmotnost, double vyska)
         {
-            if (jmeno.Length < 1) throw new ArgumentException("PÅ™Ã­liÅ¡ krÃ¡tkÃ© jmÃ©no");
+            if (jmeno.Length < 1) throw new ArgumentException("Pøíliš krátké jméno");
             if (hmotnost <= 0) throw new ArgumentOutOfRangeException();
             if (vyska <= 0) throw new ArgumentOutOfRangeException();
 
