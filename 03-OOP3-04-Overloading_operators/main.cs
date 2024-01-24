@@ -4,6 +4,7 @@ class Program
 {
     public static void Main(string[] args)
     {
+
         bool[,] boolArray =
         {
             { true , false, true  },
@@ -19,7 +20,7 @@ class Program
 
         for (int i = 0; i < 3; i++)
         {
-            Console.WriteLine($"Step {i+1}");
+            Console.WriteLine($"Step {i + 1}");
             map[point] = !map[point];
             // point = point + step;
             point += step;
