@@ -157,5 +157,30 @@ namespace _03_OOP3_06_Hanoi
             Console.Write(new string('=', 2 * Size - 1));
         }
 
+        private void MoveDiscs(int count, int from, int to)
+        {
+            int other = 3 - from - to;
+            int remains = count - 1; //kolik jich přesunout na dočasný
+
+            //přesuň všechny disky nad spodním na "dočasný" kolík
+            if (remains > 0)
+                MoveDiscs(remains, from, other);
+
+            //přesuň spodní disk na cílový kolík
+            Move(from, to);
+            System.Threading.Thread.Sleep(250);
+            Console.Clear();
+            Render();
+
+            //přesuň všechno z dočasného kolíku na cíl
+            if (remains > 0)
+                MoveDiscs(remains, other, to);
+        }
+
+        public void Solve()
+        {
+            MoveDiscs(Size, 0, 2);
+        }
+
     }
 }
