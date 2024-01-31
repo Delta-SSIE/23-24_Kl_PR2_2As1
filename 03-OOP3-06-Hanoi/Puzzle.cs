@@ -27,25 +27,25 @@ namespace _03_OOP3_06_Hanoi
             }
         }
 
-        public void Render()
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                Console.Write(i + ": ");
-                RenderTower(i);
-                Console.WriteLine();
-            }
-            Console.WriteLine();
-        }
+        //public void Render()
+        //{
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        Console.Write(i + ": ");
+        //        RenderTower(i);
+        //        Console.WriteLine();
+        //    }
+        //    Console.WriteLine();
+        //}
 
-        private void RenderTower(int number)
-        {
-            Stack<int> tower = GetTowerByNo(number);
-            int[] discs = tower.ToArray();
-            Array.Reverse(discs);
-            foreach (int disc in discs)
-                Console.Write(disc + " ");
-        }
+        //private void RenderTower(int number)
+        //{
+        //    Stack<int> tower = GetTowerByNo(number);
+        //    int[] discs = tower.ToArray();
+        //    Array.Reverse(discs);
+        //    foreach (int disc in discs)
+        //        Console.Write(disc + " ");
+        //}
 
         /// <summary>
         /// Moves disc from one pin to another
@@ -103,5 +103,59 @@ namespace _03_OOP3_06_Hanoi
                 _ => throw new ArgumentOutOfRangeException(nameof(number)),
             };
         }
+        public void Render()
+        {
+            int baseY = Console.CursorTop + 1;
+
+            for (int i = 0; i < 3; i++)
+            {
+                int baseX = 2 * i * (Size + 1) + 1;
+
+                Stack<int> tower = GetTowerByNo(i);
+                RenderTower(tower, baseX, baseY);
+            }
+
+
+        }
+
+        private void RenderTower(Stack<int> tower, int x, int topY)
+        {
+            int y = topY;
+
+            int emptyRows = Size - tower.Count;
+            for (int i = 0; i < emptyRows; i++)
+            {
+                RenderDisc(0, x, y);
+                y++;
+            }
+            foreach (int disc in tower)
+            {
+                RenderDisc(disc, x, y);
+                y++;
+            }
+            RenderBase(x, y);
+
+
+        }
+        private void RenderDisc(int disc, int x, int y)
+        {
+            Console.SetCursorPosition(x, y);
+            if (disc > 0)
+            {
+                Console.Write(new string(' ', Size - disc));
+                Console.Write(new string('#', 2 * disc - 1));
+            }
+            else
+            {
+                Console.Write(new string(' ', Size - 1));
+                Console.Write('|');
+            }
+        }
+        private void RenderBase(int x, int y)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(new string('=', 2 * Size - 1));
+        }
+
     }
 }
