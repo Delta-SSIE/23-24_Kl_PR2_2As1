@@ -89,7 +89,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03-OOP2-Reseni-testu", "03-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03-OOP3-06-Hanoi", "03-OOP3-06-Hanoi\03-OOP3-06-Hanoi.csproj", "{87DC64A4-C2AA-4063-803D-F1AC89AA7E33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-OOP3-07-Salesmen-tree", "03-OOP3-07-Salesmen-tree\03-OOP3-07-Salesmen-tree.csproj", "{5E5AA267-3E40-4ED2-9A42-115EC770BCB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03-OOP3-07-Salesmen-tree", "03-OOP3-07-Salesmen-tree\03-OOP3-07-Salesmen-tree.csproj", "{5E5AA267-3E40-4ED2-9A42-115EC770BCB6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03-OOP3-08-Kolekce-Bludiste", "C:\Users\koupja\source\repos\2023_PR2_2As1\03-OOP3-08-Kolekce-Bludiste\03-OOP3-08-Kolekce-Bludiste.csproj", "{028F8568-842B-43E8-B8D7-15B703ADFD22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -257,6 +259,10 @@ Global
 		{5E5AA267-3E40-4ED2-9A42-115EC770BCB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E5AA267-3E40-4ED2-9A42-115EC770BCB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E5AA267-3E40-4ED2-9A42-115EC770BCB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{028F8568-842B-43E8-B8D7-15B703ADFD22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{028F8568-842B-43E8-B8D7-15B703ADFD22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{028F8568-842B-43E8-B8D7-15B703ADFD22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{028F8568-842B-43E8-B8D7-15B703ADFD22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
