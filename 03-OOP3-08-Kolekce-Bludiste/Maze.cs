@@ -20,7 +20,7 @@ namespace _03_Kolekce_02_Bludiste
             {
                 Width = int.Parse(reader.ReadLine()); //první řádek je šířka
                 Height = int.Parse(reader.ReadLine()); //druhý řádek je výška
-                
+
                 _map = new TileType[Width, Height];
 
                 string line;
@@ -39,7 +39,7 @@ namespace _03_Kolekce_02_Bludiste
                         if (line[x] == 'S') //poznamenám si, kde je start
                             _entrance = new Coords(x, y);
                     }
-                }                
+                }
             }
             _display = new MazeDisplay(1, 1, Width, Height); //připravím prostor pro kreslení, odsazený o 1 čtverec
             RenderMaze();
@@ -55,6 +55,74 @@ namespace _03_Kolekce_02_Bludiste
                 }
             }
             _display.WrapUp();
+        }
+
+        public void Solve(IVisitList visitList)
+        {
+            //připrav seznam bodů k projití
+            //Stack<Coords> placesToVisit = new();
+
+            //dej do seznamu start
+            visitList.AddPlace(_entrance);
+
+            //dokud na seznamu něco je
+            while (visitList.Count > 0)
+            {
+                //vyndej první ze seznamu
+                Coords here = visitList.GetNext();
+
+                //pokud jsi v cíli, zajásej
+                if (_map[here.X, here.Y] == TileType.Exit)
+                {
+                    //hotovo
+                    return;
+                }
+
+                _map[here.X, here.Y] = TileType.Visited;
+
+
+                //přidej na seznam všechny sousedy, které na něm ještě nemáš
+
+                Coords[] neighbours = GetNeighbours(here);
+                foreach(Coords neighbour in neighbours)
+                {
+                    visitList.AddPlace(neighbour);
+
+                    if (_map[neighbour.X, neighbour.Y] == TileType.Corridor)
+                    { 
+                        _map[neighbour.X, neighbour.Y] = TileType.Listed;
+                    }
+                }
+
+                Console.ReadKey();
+                RenderMaze();
+
+            }
+
+
+        }
+
+        private Coords[] GetNeighbours(Coords place)
+        {
+            Coords[] candidates =
+            {
+                new Coords(place.X - 1, place.Y),
+                new Coords(place.X + 1, place.Y),
+                new Coords(place.X, place.Y + 1),
+                new Coords(place.X, place.Y - 1),
+            };
+
+            List<Coords> result = new();
+            foreach(Coords candidate in candidates)
+            {
+                TileType type = _map[candidate.X, candidate.Y];
+                if (type == TileType.Corridor || type == TileType.Exit)
+                {
+                    result.Add(candidate);
+                }
+            }
+
+            return result.ToArray();
         }
 
     }

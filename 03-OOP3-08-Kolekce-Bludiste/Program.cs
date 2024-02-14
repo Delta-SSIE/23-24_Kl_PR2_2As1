@@ -5,7 +5,12 @@
         static void Main(string[] args)
         {
             Maze maze = new Maze();
-            maze.LoadMaze("maze.txt");
+            maze.LoadMaze("emptymaze.txt");
+            //maze.LoadMaze("micromaze.txt");
+            //maze.Solve(new StackVisitList());
+            //maze.Solve(new QueueVisitList());
+            maze.Solve(new RandomVisitList());
+ 
         }
     }
 }
