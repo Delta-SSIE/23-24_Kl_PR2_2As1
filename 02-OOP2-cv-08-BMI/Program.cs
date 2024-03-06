@@ -1,4 +1,4 @@
-?using System;
+using System;
 
 namespace replit_03_OOP2_080_IComparable_BMI
 {

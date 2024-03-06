@@ -6,6 +6,7 @@
         {
             int[] nums = [1, 2, 3,-120, 4, 7, 2];
             Console.WriteLine(Tools.FindMin(nums));
+            
         }
     }
 }

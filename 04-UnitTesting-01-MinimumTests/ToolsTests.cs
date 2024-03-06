@@ -25,6 +25,8 @@ namespace _04_UnitTesting_01_Minimum.Tests
             int[] nums = [];
             Tools.FindMin(nums);
             Assert.Fail();
+
+            
         }
     }
 }

@@ -18,7 +18,7 @@
 
             Console.WriteLine(vklady["Lojza"]);
             Console.WriteLine(vklady["Vojta"]);
-            vklady.
+            //vklady.
         }
     }
 }
