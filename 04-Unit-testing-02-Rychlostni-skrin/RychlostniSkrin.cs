@@ -31,7 +31,8 @@ namespace _04_Unit_testing_02_Rychlostni_skrin
 
         public void Dolu()
         {
-            throw new NotImplementedException();
+            if (Zarazeno != Stupen.Zpatecka)
+                Zarazeno = (Stupen)(Zarazeno - 1);
         }
     }
 }

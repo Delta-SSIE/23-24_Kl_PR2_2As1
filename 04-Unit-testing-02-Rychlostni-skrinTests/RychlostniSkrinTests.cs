@@ -72,11 +72,32 @@ namespace _04_Unit_testing_02_Rychlostni_skrin.Tests
             Assert.AreEqual(Stupen.Neutral, rs.Zarazeno);
         }
 
-        //[TestMethod()]
-        //public void DoluTest()
-        //{
-        //    Assert.Fail();
-        //}
+        [TestMethod()]
+        public void DoluTest()
+        {
+            RychlostniSkrin rs = new RychlostniSkrin(1600);
+            rs.Dolu();
+            Assert.AreEqual(Stupen.Zpatecka, rs.Zarazeno);
+        }
+
+        [TestMethod()]
+        public void AzDoluTest()
+        {
+            RychlostniSkrin rs = new RychlostniSkrin(1600);
+            rs.Dolu();
+            rs.Dolu();
+            Assert.AreEqual(Stupen.Zpatecka, rs.Zarazeno);
+        }
+
+        [TestMethod()]
+        public void DoluMaxOtackyTest()
+        {
+            RychlostniSkrin rs = new RychlostniSkrin(1600);
+            rs.Otacky = 2000;
+            rs.Dolu();
+            Assert.AreEqual(Stupen.Neutral, rs.Zarazeno);
+        }
+
 
         [TestMethod()]
         public void OtackySetTest()
