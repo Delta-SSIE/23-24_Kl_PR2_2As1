@@ -1,0 +1,24 @@
+﻿<Window x:Class="_06_WPF_06_ImgView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_06_WPF_06_ImgView"
+        mc:Ignorable="d"
+        Title="Prohlížeč fotografií" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="FileNameTB" Grid.Row="0" Grid.Column="0" IsReadOnly="True"/>
+        <Button x:Name="OpenBtn" Content="Open" Grid.Row="0" Grid.Column="1" Click="OpenBtn_Click"/>
+        <Image x:Name="PhotoCtrl" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+        
+    </Grid>
+</Window>
