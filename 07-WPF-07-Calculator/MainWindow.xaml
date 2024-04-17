@@ -55,6 +55,49 @@
                 Content="+"
                 Style="{StaticResource OperationBtnStyle}"
                 />
+        <Button x:Name="MinusBtn"
+                Grid.Row="5"
+                Grid.Column="3"
+                Content="-"
+                Style="{StaticResource OperationBtnStyle}"
+                />
+        <Button x:Name="MultiplyBtn"
+                Grid.Row="3"
+                Grid.Column="3"
+                Content="*"
+                Style="{StaticResource OperationBtnStyle}"
+                />
+        <Button x:Name="DivideBtn"
+                Grid.Row="2"
+                Grid.Column="3"
+                Content="/"
+                Style="{StaticResource OperationBtnStyle}"
+                />
+        <Button x:Name="DotBtn"
+                Grid.Row="5"
+                Grid.Column="1"
+                Content="."
+                Style="{StaticResource OperationBtnStyle}"
+                />
+        <Button x:Name="EqualsBtn"
+                Grid.Row="5"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                Content="="
+                Style="{StaticResource OperationBtnStyle}"
+                />
+        <Button x:Name="PercentBtn"
+                Grid.Row="2"
+                Grid.Column="2"
+                Content="%"
+                Style="{StaticResource OperationBtnStyle}"
+                />
+        <Button x:Name="PlusMinusBtn"
+                Grid.Row="2"
+                Grid.Column="1"
+                Content="±"
+                Style="{StaticResource OperationBtnStyle}"
+                />
 
     </Grid>
     
